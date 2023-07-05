@@ -1,24 +1,24 @@
-const url = "www.thecocktaildb.com/api/json/v1/1/search.php?s"
+//const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s`;
+
+document.querySelector(`form`).addEventListener(`submit`, function(event){
+    event.preventDefault();
+    const searchValue = document.querySelector(`#search`).value;
+    searchCocktail(searchValue);
+});
 
 // Fetch data from the public API
-document.addEventListener(`DOMContentLoaded`, function(){
    function searchCocktail(searchValue){ 
-    fetch(url)
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s`)
     .then(res => res.json())
     .then(data => {
         displayCocktails(data.drinks);
     });
 }
 
-    document.querySelector(`form`).addEventListener(`submit`, function(event){
-        event.preventDefault();
-        const searchValue = document.querySelector(`search`).value;
-        searchCocktail(searchValue);
-    });
 //Created a function that handles the response acquired from the Public API
     function displayCocktails(cocktails){
         const cocktailList = document.querySelector(`#cocktail-list`);
-        cocktailList.innerHTML = ``;
+        cocktailList.innerHTML = ` `;
 
 //added a list that will store and show the results after searching for a drink
         if(cocktails){
@@ -38,7 +38,7 @@ document.addEventListener(`DOMContentLoaded`, function(){
         };
     }
     function getCocktailDetails(cocktailid){
-        fetch(url)
+        fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s`)
         .then(res => res.json())
         .then(data => {
             displayCocktailDetails(data.drinks[0]);
@@ -49,4 +49,3 @@ document.addEventListener(`DOMContentLoaded`, function(){
     function displayCocktailDetails(cocktail) {
         alert(`Name: ${cocktail.strDrink}, Category: ${cocktail.strCategory}, Glass: ${cocktail.strGlass}, Instructions: ${cocktail.strInstructions}`);
     };
-});

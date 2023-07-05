@@ -4,7 +4,7 @@ const url = "www.thecocktaildb.com/api/json/v1/1/search.php?s"
 document.addEventListener(`DOMContentLoaded`, function(){
    function searchCocktail(searchValue){ 
     fetch(url)
-    .then(res => res.json)
+    .then(res => res.json())
     .then(data => {
         displayCocktails(data.drinks);
     });
@@ -37,4 +37,16 @@ document.addEventListener(`DOMContentLoaded`, function(){
             cocktailList.appendChild(message);
         };
     }
+    function getCocktailDetails(cocktailid){
+        fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            displayCocktailDetails(data.drinks[0]);
+        })
+        //error message to be displayed here
+    };
+
+    function displayCocktailDetails(cocktail) {
+        alert(`Name: ${cocktail.strDrink}, Category: ${cocktail.strCategory}, Glass: ${cocktail.strGlass}, Instructions: ${cocktail.strInstructions}`);
+    };
 });

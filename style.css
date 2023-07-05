@@ -1,4 +1,18 @@
+body, html{
+    height: 100%;
+    margin: 0;
+}
+.text-centered{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
 #main.h1{
+    font-family: serif;
+}
+p{
     font-family: serif;
 }
 form{

@@ -47,5 +47,16 @@ document.querySelector(`form`).addEventListener(`submit`, function(event){
     };
 
     function displayCocktailDetails(cocktail) {
-        alert(`Name: ${cocktail.strDrink}, Category: ${cocktail.strCategory}, Glass: ${cocktail.strGlass}, Instructions: ${cocktail.strInstructions}`);
+        alert(`Name: ${cocktail.strDrink}
+        Category: ${cocktail.strCategory}
+        Glass: ${cocktail.strGlass}
+        Instructions: ${cocktail.strInstructions}
+        InstructionsES: ${cocktail.strInstructionES}
+        InstructionDE: ${cocktail.strInstructionDE}
+        InstructionIT: ${cocktail.strInstructionIT}
+        DrinkThumb: ${cocktail.strDrinkThumb}
+        Ingredient 1: ${cocktail.strIngredient1}
+        Ingredient 2: ${cocktail.strIngredient2}
+        Ingredient 3: ${cocktail.strIngredient3}
+        `);
     };

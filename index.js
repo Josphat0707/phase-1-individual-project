@@ -1,5 +1,10 @@
 //const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s`;
 
+document.querySelector(`form`).addEventListener(`submit`, function(event){
+    event.preventDefault();
+    const searchValue = document.querySelector(`#search`).value;
+    searchCocktail(searchValue);
+});
 
 // Fetch data from the public API
    function searchCocktail(searchValue){ 
@@ -9,12 +14,6 @@
         displayCocktails(data.drinks);
     });
 }
-
-document.querySelector(`form`).addEventListener(`submit`, function(event){
-    event.preventDefault();
-    const searchValue = document.querySelector(`#search`).value;
-    searchCocktail(searchValue);
-});
 
 //Created a function that handles the response acquired from the Public API
     function displayCocktails(cocktails){

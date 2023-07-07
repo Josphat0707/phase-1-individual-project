@@ -41,14 +41,7 @@ document.querySelector(`form`).addEventListener(`submit`, function(event){
             cocktailList.appendChild(message);
         };
     }
-    // function getCocktailDetails(cocktailid){
-    //     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s`)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         displayCocktailDetails(data.drinks);
-    //     })
-    //     //error message to be displayed here
-    // };
+
 
     function displayCocktailDetails(cocktail) {
         const cocktailDetails = document.querySelector(`#cocktailDetails`);

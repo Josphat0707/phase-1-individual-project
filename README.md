@@ -17,6 +17,7 @@ The above project fetches data from a public API and the data obtained is displa
 2. The drink's category
 3. Instructions on how to make the drink
 4. The different ingredients needed.
+As a user, i will be able to see a search bar, when i enter data onto the search bar, i will get a list of all drink within the Public API. When i click on a list item/a drink in the said list, the above details will be provided at the bottom, after the list.
 
 ## Technologies Used
 1. HTML

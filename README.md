@@ -19,6 +19,8 @@ The above project fetches data from a public API and the data obtained is displa
 4. The different ingredients needed.
 As a user, i will be able to see a search bar, when i enter data onto the search bar, i will get a list of all drink within the Public API. When i click on a list item/a drink in the said list, the above details will be provided at the bottom, after the list.
 
+You will notice that when you click on a list item, you get the additional details of that drink and when you click on another lidt item, additional information for the second clicked list item will appear bellow the additional details for the first list item you clicked. 
+
 ## Technologies Used
 1. HTML
 2. CSS

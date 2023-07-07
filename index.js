@@ -1,4 +1,5 @@
 //const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s`;
+document.addEventListener(`DOMContentLoaded`, function(){
 
 document.querySelector(`form`).addEventListener(`submit`, function(event){
     event.preventDefault();
@@ -17,8 +18,11 @@ document.querySelector(`form`).addEventListener(`submit`, function(event){
 
 //Created a function that handles the response acquired from the Public API
     function displayCocktails(cocktails){
-        const cocktailList = document.querySelector(`#cocktail-list`);
-        cocktailList.innerHTML = ` `;
+        const cocktailList = document.querySelector(`#cocktailList`);
+        const cocktailDetails = document.querySelector(`#cocktailDetails`);
+        cocktailList.innerHTML = ``;
+        cocktailDetails.innerHTML = ``;
+
 
 //added a list that will store and show the results after searching for a drink
         if(cocktails){
@@ -26,7 +30,7 @@ document.querySelector(`form`).addEventListener(`submit`, function(event){
                 const cocktailItem = document.createElement(`li`);
                 cocktailItem.textContent = cocktail.strDrink;
                 cocktailItem.addEventListener(`click`, function(){
-                    getCocktailDetails(cocktail.idDrink);
+                    displayCocktailDetails(cocktail);
                 });
                 cocktailList.appendChild(cocktailItem);
             });
@@ -37,26 +41,33 @@ document.querySelector(`form`).addEventListener(`submit`, function(event){
             cocktailList.appendChild(message);
         };
     }
-    function getCocktailDetails(cocktailid){
-        fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s`)
-        .then(res => res.json())
-        .then(data => {
-            displayCocktailDetails(data.drinks[0]);
-        })
-        //error message to be displayed here
-    };
+    // function getCocktailDetails(cocktailid){
+    //     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s`)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         displayCocktailDetails(data.drinks);
+    //     })
+    //     //error message to be displayed here
+    // };
 
     function displayCocktailDetails(cocktail) {
-        alert(`Name: ${cocktail.strDrink}
-        Category: ${cocktail.strCategory}
-        Glass: ${cocktail.strGlass}
-        Instructions: ${cocktail.strInstructions}
-        InstructionsES: ${cocktail.strInstructionES}
-        InstructionDE: ${cocktail.strInstructionDE}
-        InstructionIT: ${cocktail.strInstructionIT}
-        DrinkThumb: ${cocktail.strDrinkThumb}
-        Ingredient 1: ${cocktail.strIngredient1}
-        Ingredient 2: ${cocktail.strIngredient2}
-        Ingredient 3: ${cocktail.strIngredient3}
-        `);
+        const cocktailDetails = document.querySelector(`#cocktailDetails`);
+        const detailsContainer = document.createElement(`div`);
+
+        detailsContainer.innerHTML = `
+        <h2>${cocktail.strDrink}</h2>
+        <p>Category: ${cocktail.strCategory}</p>
+        <p>Glass: ${cocktail.strGlass}</p>
+        <p>Instructions: ${cocktail.strInstructions}</p>
+        <p>InstructionsES: ${cocktail.strInstructionES}</p>
+        <p>InstructionDE: ${cocktail.strInstructionDE}</p>
+        <p>InstructionIT: ${cocktail.strInstructionIT}</p>
+        <p>DrinkThumb: ${cocktail.strDrinkThumb}</p>
+        <p>Ingredient 1: ${cocktail.strIngredient1}</p>
+        <p>Ingredient 2: ${cocktail.strIngredient2}</p>
+        <p>Ingredient 3: ${cocktail.strIngredient3}</p>`;
+
+        cocktailDetails.appendChild(detailsContainer);
+
     };
+});
